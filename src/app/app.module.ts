@@ -19,6 +19,9 @@ import { ReadAllCloseComponent } from './components/agenda/read-all-close/read-a
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MenuComponent } from './components/menu/menu.component';
+import { CreateComponent } from './components/agenda/create/create.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     HeaderComponent,
     FooterComponent,
     ReadAllComponent,
-    ReadAllCloseComponent
+    ReadAllCloseComponent,
+    MenuComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatTabsModule,
     MatExpansionModule,
     MatFormFieldModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

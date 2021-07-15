@@ -4,7 +4,8 @@
   margin: auto;
   margin-top: 2rem;
 }
-.card-topo{
+
+.card-topo {
   width: 100%;
   margin: auto;
 }
@@ -18,7 +19,8 @@
   text-align: end;
 
 }
-.add-btn{
+
+.add-btn {
   margin-right: 0.5rem;
 }
 
@@ -37,9 +39,18 @@ p {
 
 .actions {
   text-align: end;
-
-  button {
-    margin: .2rem;
-  }
 }
+
+button {
+  margin: .2rem;
+}
+
+.header-image {
+  margin-left: 0.5rem;
+  background-image: url('/assets/img/check.svg');
+  background-size: cover;
+  width: 55px;
+  height: 55px;
+}
+
 

@@ -1,21 +1,18 @@
 <div class="container">
-  <div class="badge">
-
-  </div>
   <div class="add">
-    <button mat-fab color="basic" class="add-btn" >
-      <mat-icon>add</mat-icon>
-    </button>
-    <button mat-fab color="basic" matBadge="{{ closed}}">
-      <mat-icon>done</mat-icon>
-    </button>
-  </div>
+    <button mat-button color="primary" matBadge="{{ closed}}" routerLink="/close">
+         <mat-icon>done</mat-icon>
+         Tarefas Finalizados
+       </button>
+     </div>
 
   <div class="content" *ngFor="let item of list">
 
     <mat-card class="mat-elevation-z8">
       <p>Data para Finalizar:{{ item.dataParaFinalizar }}</p>
+
       <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
         <mat-card-title>{{ item.titulo}}</mat-card-title>
         <mat-card-subtitle>{{ item.descricao}}</mat-card-subtitle>
       </mat-card-header>
@@ -23,14 +20,15 @@
         <button mat-button color="primary">
           <mat-icon>done</mat-icon>
         </button>
-        <button mat-button color="accent">
+        <button mat-button color="primary">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-button color="warn">
+        <button mat-button color="primary" (click)="delete(item.id)" >
           <mat-icon>delete</mat-icon>
         </button>
       </div>
     </mat-card>
   </div>
+
 </div>
 

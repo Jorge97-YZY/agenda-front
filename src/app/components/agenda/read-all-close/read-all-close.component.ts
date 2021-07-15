@@ -10,6 +10,7 @@ import { AgendaService } from 'src/app/services/agenda.service';
 export class ReadAllCloseComponent implements OnInit {
 
   list: Agenda[] = []
+  count = 0;
   constructor(
     private service: AgendaService
   ) { }
@@ -21,7 +22,16 @@ export class ReadAllCloseComponent implements OnInit {
   findAllClose() {
     this.service.findAllClose().subscribe(res => {
       this.list = res;
+      this.countTasks();
     });
+  }
+
+  countTasks(): void{
+    for(let agenda of this.list){
+      if(agenda.finalizado){
+        this.count++;
+      }
+    }
   }
 
 

@@ -1,6 +1,5 @@
 .container {
   width: 60%;
-  height: 100%;
   margin: auto;
   margin-top: 2rem;
 }
@@ -41,5 +40,13 @@ p {
   button {
     margin: .2rem;
   }
+}
+
+.header-image {
+  margin-left: 0.5rem;
+  background-image: url('/assets/img/check.svg');
+  background-size: cover;
+  width: 55px;
+  height: 55px;
 }
 

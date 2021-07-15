@@ -1,6 +1,7 @@
 import { AgendaService } from '../../../services/agenda.service';
 import { Component, OnInit } from '@angular/core';
 import { Agenda } from 'src/app/models/agenda';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-read-all',
@@ -9,10 +10,12 @@ import { Agenda } from 'src/app/models/agenda';
 })
 export class ReadAllComponent implements OnInit {
 
-  list: Agenda[] = []
+  list: Agenda[] = [];
+  listFinished: Agenda[] = [];
   closed = 0;
   constructor(
-    private service: AgendaService
+    private service: AgendaService,
+
   ) { }
 
   ngOnInit(): void {
@@ -21,16 +24,24 @@ export class ReadAllComponent implements OnInit {
 
   findAll() {
     this.service.findAll().subscribe(res => {
-      this.list = res;
-      this.countClosed();
+      res.forEach(agenda =>{
+        if(agenda.finalizado){
+          this.listFinished.push(agenda)
+        }else{
+          this.list.push(agenda)
+        }
+      })
+      this.closed = this.listFinished.length
     });
   }
 
-  countClosed(): void{
-    for(let agenda of this.list){
-      if(agenda.finalizado){
-        this.closed++;
+  delete(id: any): void{
+    this.service.delete(id).subscribe((res)=>{
+      if(res === null){
+        this.service.message('Task apagada com sucesso!')
+        this.list = this.list.filter(agenda => agenda.id !== id);
       }
-    }
+    })
   }
+
 }

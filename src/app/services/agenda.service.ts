@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Agenda } from '../models/agenda';
 import {tap} from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AgendaService {
   baseUrl = environment.baseUrl;
 
 constructor(
-  private http: HttpClient
+  private http: HttpClient,
+  private snack: MatSnackBar
 ) { }
 
 findAll(): Observable<Agenda[]>{
@@ -24,6 +26,17 @@ findAll(): Observable<Agenda[]>{
 
 findAllClose(): Observable<Agenda[]>{
   return this.http.get<Agenda[]>(`${this.baseUrl}/close`)
+}
+delete(id: any): Observable<void> {
+  return this.http.delete<void>(`${this.baseUrl}/${id}`);
+}
+
+message(msg: String): void{
+  this.snack.open(`${msg}`, 'OK', {
+    horizontalPosition: 'end',
+    verticalPosition: 'top',
+    duration: 4000
+  } );
 }
 
 }
