@@ -35,10 +35,20 @@ export class ReadAllComponent implements OnInit {
     });
   }
 
+  finalizar(item: Agenda): void{
+    item.finalizado = true
+    this.service.update(item).subscribe((res)=>{
+      this.service.message('Tarefa finalizada com sucesso!')
+      this.list = this.list.filter(agenda => agenda.id !== item.id);
+      this.closed++;
+    });
+
+  }
+
   delete(id: any): void{
     this.service.delete(id).subscribe((res)=>{
       if(res === null){
-        this.service.message('Task apagada com sucesso!')
+        this.service.message('Tarefa apagada com sucesso!')
         this.list = this.list.filter(agenda => agenda.id !== id);
       }
     })

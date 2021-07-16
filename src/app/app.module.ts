@@ -22,6 +22,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MenuComponent } from './components/menu/menu.component';
 import { CreateComponent } from './components/agenda/create/create.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -47,7 +52,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatExpansionModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

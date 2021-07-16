@@ -27,6 +27,9 @@ findAll(): Observable<Agenda[]>{
 findAllClose(): Observable<Agenda[]>{
   return this.http.get<Agenda[]>(`${this.baseUrl}/close`)
 }
+update(agenda: Agenda): Observable<Agenda>{
+  return this.http.put<Agenda>(`${this.baseUrl}/${agenda.id}`, agenda);
+}
 delete(id: any): Observable<void> {
   return this.http.delete<void>(`${this.baseUrl}/${id}`);
 }
