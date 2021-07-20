@@ -18,6 +18,9 @@ constructor(
   private snack: MatSnackBar
 ) { }
 
+findById(id: any): Observable<Agenda>{
+  return this.http.get<Agenda>(`${this.baseUrl}/${id}`);
+}
 findAll(): Observable<Agenda[]>{
   return this.http.get<Agenda[]>(this.baseUrl).pipe(
     tap(console.log)
@@ -32,6 +35,9 @@ update(agenda: Agenda): Observable<Agenda>{
 }
 delete(id: any): Observable<void> {
   return this.http.delete<void>(`${this.baseUrl}/${id}`);
+}
+create(agenda: Agenda): Observable<Agenda>{
+  return this.http.post<Agenda>(this.baseUrl, agenda);
 }
 
 message(msg: String): void{

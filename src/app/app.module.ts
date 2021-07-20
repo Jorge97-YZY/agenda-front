@@ -1,6 +1,8 @@
+import { UpdateComponent } from './components/agenda/update/update.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +37,8 @@ import {MatInputModule} from '@angular/material/input';
     ReadAllComponent,
     ReadAllCloseComponent,
     MenuComponent,
-    CreateComponent
+    CreateComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatDatepickerModule,
     MatSnackBarModule,
-    MatInputModule
+    MatInputModule,
+    MatNativeDateModule
 
   ],
   providers: [],

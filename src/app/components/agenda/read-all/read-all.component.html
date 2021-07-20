@@ -20,7 +20,7 @@
         <button mat-button color="primary" (click)="finalizar(item)">
           <mat-icon>done</mat-icon>
         </button>
-        <button mat-button color="primary">
+        <button mat-button color="primary" routerLink="/update/{{item.id}}">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-button color="primary" (click)="delete(item.id)" >

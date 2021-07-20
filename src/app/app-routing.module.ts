@@ -1,3 +1,4 @@
+import { UpdateComponent } from './components/agenda/update/update.component';
 import { CreateComponent } from './components/agenda/create/create.component';
 import { ReadAllCloseComponent } from './components/agenda/read-all-close/read-all-close.component';
 import { ReadAllComponent } from './components/agenda/read-all/read-all.component';
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'nova', component: CreateComponent
+  },
+  {
+    path: 'update/:id', component: UpdateComponent
   }
 ];
 
